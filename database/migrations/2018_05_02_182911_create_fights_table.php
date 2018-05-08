@@ -21,6 +21,7 @@ class CreateFightsTable extends Migration
             $table->foreign('bside')->references('id')->on('boxers');
             $table->integer('card_id')->unsigned();
             $table->boolean('main_event');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

@@ -19,6 +19,7 @@
 					<ul class="uk-nav uk-navbar-dropdown-nav">
 						<li class="uk-active"><a href="/boxers">Boxers</a></li>
 						<li><a href="/cards">Cards</a></li>
+						<li><a href="/cards">Networks</a></li>
 					</ul>
 				</div>
 			</li>

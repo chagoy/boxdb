@@ -12,7 +12,7 @@ class BoxerController extends Controller
     public function index()
     {
         $featured = Boxer::get()->shuffle()->take(3);
-        $boxers = Boxer::get();
+        $boxers = Boxer::get()->groupBy('weight_id');
 
         return view('boxers.index', compact('featured', 'boxers'));
     }

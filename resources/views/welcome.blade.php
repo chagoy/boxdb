@@ -6,7 +6,11 @@
             <p class="uk-text-center">boxdb. god damn pal.</p>
         </div>
         <div class="uk-tile uk-tile-secondary">
-            <p>viewers matter.</p>
+            <p uk-margin>viewers matter.
+            </p>
+            <p>
+            <button class="uk-button uk-button-default">become a contributor</button></p>
+            
         </div>
     </div>
 

@@ -15,8 +15,6 @@ class Boxer extends Model
 
     protected $with = ['weight'];
 
-    protected $appends = ['full_name'];
-
     public function getRouteKeyName()
     {
         return 'slug';
@@ -40,11 +38,6 @@ class Boxer extends Model
     public function allFights()
     {
     	return array($this->asideFights()->get(), $this->bsideFights()->get());
-    }
-
-    public function getFullAttribute()
-    {
-        return $this->first_name . ' ' . $this->last_name;
     }
 
     public function getPctAttribute()
