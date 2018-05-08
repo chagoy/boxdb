@@ -15,6 +15,8 @@ class Boxer extends Model
 
     protected $with = ['weight'];
 
+    protected $appends = ['full_name'];
+
     public function getRouteKeyName()
     {
         return 'slug';

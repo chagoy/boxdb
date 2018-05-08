@@ -11,19 +11,21 @@ class Fight extends Model
 {
 	protected $guarded = [];
 
-    protected $with = ['aside', 'bside', 'views'];
+    protected $with = ['asideBoxer', 'bsideBoxer', 'views'];
+
+    // protected $appends = ['aside', 'bside'];
 
     public function card()
     {
     	return $this->belongsTo(Card::class);
     }
 
-    public function aside()
+    public function asideBoxer()
     {
     	return $this->hasOne(Boxer::class, 'id', 'aside');
     }
 
-    public function bside()
+    public function bsideBoxer()
     {
     	return $this->hasOne(Boxer::class, 'id', 'bside');
     }

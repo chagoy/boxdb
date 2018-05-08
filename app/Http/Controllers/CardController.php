@@ -46,7 +46,7 @@ class CardController extends Controller
     public function index()
     {
         $cards = Card::get();
-
+        
         return view('cards.index', compact('cards'));
     }
 }

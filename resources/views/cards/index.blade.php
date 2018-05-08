@@ -18,10 +18,10 @@
 						<td>Date</td>
 						<td>{{ $card->network->name }}</td>
 						@foreach ($card->fights as $fight)
-							<td>{{ dd($fight->aside->first_name) }}</td>
-							<td>{{ $fight->bside->last_name }}</td>
+							<td>{{ $fight->asideBoxer->first_name . ' ' . $fight->asideBoxer->last_name }}</td>
+							<td>{{ $fight->bsideBoxer->first_name . ' ' . $fight->bsideBoxer->last_name }}</td>
+							<td>{{ number_format($fight->views->average) }}</td>
 						@endforeach
-						<td>{{ $card->fights->views->average }}</td>
 					</tr>
 				@endforeach
 			</tbody>
