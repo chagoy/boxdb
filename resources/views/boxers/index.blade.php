@@ -26,12 +26,14 @@
 				</div>
 			</div>
 		</div>
-		<h4>the rest of the jabronis</h4>
+		<h4>the rest of the guys</h4>
 		@foreach ($boxers as $division)
 			<strong>division</strong>
-			@foreach ($division  as $boxer) 
-				{{ $boxer->weight->division }}
-			@endforeach
+			<ul>
+				@foreach ($division  as $boxer) 
+					{{ $boxer }}
+				@endforeach
+			</ul>
 		@endforeach
 	</div>
 @endsection

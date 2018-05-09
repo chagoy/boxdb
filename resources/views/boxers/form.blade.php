@@ -56,7 +56,7 @@
 	<div class="uk-margin">
 		<label for="distinction" class="uk-form-label">Best accomplishment to date for boxer</label>
 		<div class="uk-form-controls">
-			<input type="text" class="uk-input uk-form-width-large" id="form-stacked-text" name="distinction" placeholder="The 5 time WCW world heavyweight champion... (keep it short)">
+			<input type="text" class="uk-input uk-form-width-large" id="form-stacked-text" name="distinction" placeholder="5 time champion... (keep it short)">
 		</div>
 	</div>
 

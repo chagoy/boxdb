@@ -29,7 +29,7 @@
 		<div class="uk-navbar-item">
 			<ul class="uk-navbar-nav">
 				<li class=""><a href="#">box</a></li>
-				<li><a href="#"><img src="https://cdn.discordapp.com/emojis/426170213097275392.png" alt="" class="logo"></a></li>
+				<li><a href="#"><img src="https://cdn.discordapp.com/emojis/400389619159531540.png" alt="" class="logo"></a></li>
 				<li class=""><a href="#">db</a></li>
 			</ul>
 		</div>
