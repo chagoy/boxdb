@@ -4,11 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Carbon\Carbon;
+
 class Card extends Model
 {
     protected $guarded = [];
 
-    protected $with = ['fights', 'network'];
+    protected $with = ['fights'];
+
+    protected $casts = ['date' => 'date'];
 
     public function fights()
     {
@@ -18,5 +22,10 @@ class Card extends Model
     public function network()
     {
     	return $this->belongsTo(Network::class);
+    }
+
+    public function getFormatDateAttribute()
+    {
+        return Carbon::parse($this->date)->toFormattedDateString();
     }
 }

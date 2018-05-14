@@ -16,7 +16,7 @@
 			@endforeach
 		</select>
 	</div>
-	<div class="uk-width-1-3@s">
+	<div class="uk-width-1-4@s">
 		<label for="network" class="uk-form-label">Network</label>
 		<select name="network" id="network" class="uk-select">
 			@foreach ($networks as $network)
@@ -24,13 +24,17 @@
 			@endforeach
 		</select>
 	</div>
-	<div class="uk-width-1-3@s">
+	<div class="uk-width-1-4@s">
 		<label for="viewers" class="uk-form-label">Viewers</label>
 		<input type="integer" class="uk-input" name="viewers" placeholder="Only for main event fight. 500000...">
 	</div>
-	<div class="uk-width-1-3@s">
+	<div class="uk-width-1-4@s">
 		<label for="venue" class="uk-form-label">Venue</label>
 		<input type="text" class="uk-input" name="venue" placeholder="Barclays Center...">
+	</div>
+	<div class="uk-width-1-4@s">
+		<label for="date" class="uk-form-label">Date</label>
+		<input type="text" class="uk-input" name="date" placeholder="MM:dd:YYYY">
 	</div>
 	<div class="uk-width-1-3@s">
 		<label for="main_event" class="uk-form-label">Main Event?</label>

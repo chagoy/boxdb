@@ -15,8 +15,8 @@
 			<tbody>
 				@foreach ($cards as $card)
 					<tr>
-						<td>Date</td>
-						<td>{{ $card->network->name }}</td>
+						<td>{{ $card->format_date }}</td>
+						<td><a href="/networks/{{ $card->network->slug }}">{{ $card->network->name }}</a></td>
 						@foreach ($card->fights as $fight)
 							<td><a href="/boxers/{{ $fight->asideBoxer->slug }}">{{ $fight->asideBoxer->first_name . ' ' . $fight->asideBoxer->last_name }}</a></td>
 							<td><a href="/boxers/{{ $fight->asideBoxer->slug }}">{{ $fight->bsideBoxer->first_name . ' ' . $fight->bsideBoxer->last_name }}</a></td>

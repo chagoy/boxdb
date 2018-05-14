@@ -7,6 +7,7 @@ use App\Fight;
 use App\View;
 use App\Boxer;
 use App\Network;
+use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 
@@ -19,12 +20,20 @@ class CardController extends Controller
         return view('cards.create', compact('boxers', 'networks'));
     }
 
+    public function show(Card $card)
+    {
+        $network = Network::find($card->network_id)->first();
+        
+        return view('cards.show', compact('card', 'network'))
+    }
+
     public function store(Request $request)
     {
     	$card = Card::create([
     		'ppv' => $request->ppv == 'true' ? true : false,
+            'date' => Carbon::parse($request->date),
     		'network_id' => $request->network,
-    		'venue' => $request->venue
+    		'venue' => $request->venue,
     	]);
 
     	$fight = Fight::create([
@@ -45,7 +54,7 @@ class CardController extends Controller
 
     public function index()
     {
-        $cards = Card::get();
+        $cards = Card::with('network')->get();
         
         return view('cards.index', compact('cards'));
     }

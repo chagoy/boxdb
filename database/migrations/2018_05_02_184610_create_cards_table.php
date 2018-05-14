@@ -15,6 +15,7 @@ class CreateCardsTable extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->increments('id');
+            $table->datetime('date');
             $table->boolean('ppv')->default(false);
             $table->integer('network_id');
             $table->string('venue');

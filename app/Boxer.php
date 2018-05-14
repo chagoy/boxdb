@@ -44,4 +44,9 @@ class Boxer extends Model
     {
         return round($this->wins / ($this->wins + $this-> losses + $this->draws));
     }
+
+    public function getFullNameAttribute()
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
 }

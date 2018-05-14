@@ -1,16 +1,10 @@
 <?php
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
+//USER STORIES
+//a user can look at a boxer's cards
+//a user can look at a card's ratings
+//a user can see fights that happened on a card
+//a user can add a boxer to the database
+//a user can add a card to the database
 Route::get('/', function () {
 	$boxers = \App\Boxer::get();
 
@@ -33,3 +27,6 @@ Route::get('/boxers/{boxer}', 'BoxerController@show');
 Route::get('/cards/add', 'CardController@create');
 Route::post('/cards/store', 'CardController@store');
 Route::get('/cards', 'CardController@index');
+Route::get('/cards/{card}', 'CardController@show');
+
+Route::get('/networks/{network}', 'NetworkController@show');
