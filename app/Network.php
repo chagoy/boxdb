@@ -19,4 +19,18 @@ class Network extends Model
 	{
 		return $this->hasMany(Card::class);
 	}
+
+	public function path()
+	{
+		return '/networks/' . $this->slug;
+	}
+
+	public function fightsOnly()
+	{
+		$fights = [];
+		foreach ($this->cards as $card) {
+			array_push($fights, $card->fights);
+		}
+		return $fights;
+	}
 }

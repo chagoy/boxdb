@@ -7,6 +7,11 @@ use App\Fight;
 use App\View;
 use App\Boxer;
 use App\Network;
+
+use App\Http\Requests\CardSubmission;
+
+use App\Events\CardCreated;
+
 use Carbon\Carbon;
 
 use Illuminate\Http\Request;
@@ -24,10 +29,10 @@ class CardController extends Controller
     {
         $network = Network::find($card->network_id)->first();
         
-        return view('cards.show', compact('card', 'network'))
+        return view('cards.show', compact('card', 'network'));
     }
 
-    public function store(Request $request)
+    public function store(CardSubmission $request)
     {
     	$card = Card::create([
     		'ppv' => $request->ppv == 'true' ? true : false,
@@ -35,6 +40,10 @@ class CardController extends Controller
     		'network_id' => $request->network,
     		'venue' => $request->venue,
     	]);
+
+        if ($card) {
+            event(new CardCreated($card));
+        };
 
     	$fight = Fight::create([
     		'aside' => $request->aside,

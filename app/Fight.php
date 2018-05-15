@@ -4,6 +4,7 @@ namespace App;
 
 use App\Boxer;
 use App\Card;
+use Carbon\Carbon;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -38,5 +39,19 @@ class Fight extends Model
     public function views()
     {
         return $this->hasOne(View::class);
+    }
+
+    public function getNetworkAttribute()
+    {
+        $card = Card::where('id', $this->card_id)->with('network')->first();
+        return $card->network;
+        // return Network::where('id', $card->network->id)->first();
+    }
+
+    public function getDateAttribute()
+    {
+        $card = Card::where('id', $this->card_id)->first();
+        
+        return Carbon::parse($card->date)->toFormattedDateString();
     }
 }

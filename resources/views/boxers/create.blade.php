@@ -10,7 +10,6 @@
 				<p>{{ session('status') }}</p>
 			</div>
 		@endif
-
 		@include ('boxers.form')
 	</div>
 @endsection

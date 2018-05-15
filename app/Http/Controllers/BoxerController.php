@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Boxer;
 use App\Weight;
 
+use App\Http\Requests\BoxerSubmission;
+
 use Illuminate\Http\Request;
 
 class BoxerController extends Controller
@@ -19,7 +21,10 @@ class BoxerController extends Controller
 
     public function show(Boxer $boxer)
     {
-        return view('boxers.show', compact('boxer'));
+        $fights = $boxer->allFights();
+        $allFights = $fights[0]->merge($fights[1]);
+        
+        return view('boxers.show', compact('boxer', 'allFights'));
     }
 
     public function create() 
@@ -29,13 +34,15 @@ class BoxerController extends Controller
         return view('boxers.create', compact('weights'));
     }
 
-    public function store(Request $request)
+    public function store(BoxerSubmission $request)
     {
+        $validated = $request->validated();
+        
     	$boxer = Boxer::create([
     		'first_name' => $request->first_name,
     		'last_name' => $request->last_name,
             'slug' => strtolower($request->first_name . $request->last_name),
-            'weight_id' => $request->division,
+            'weight_id' => $request->weight_id,
             'distinction' => $request->distinction,
     		'wins' => $request->wins,
     		'losses' => $request->losses,
