@@ -13891,7 +13891,7 @@ window.Vue = __webpack_require__(36);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(39));
+Vue.component('viewer-chart', __webpack_require__(39));
 
 var app = new Vue({
   el: '#app'
@@ -47175,7 +47175,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/ExampleComponent.vue"
+Component.options.__file = "resources/assets/js/components/ViewerChart.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -47184,9 +47184,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7168fb6a", Component.options)
+    hotAPI.createRecord("data-v-b4f562f6", Component.options)
   } else {
-    hotAPI.reload("data-v-7168fb6a", Component.options)
+    hotAPI.reload("data-v-b4f562f6", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -47317,20 +47317,63 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
+var defData = [{ "team": "d", "cycleTime": 1, "effort": 1, "count": 1, "priority": "low" }, {
+    "team": "d",
+    "cycleTime": 2,
+    "effort": 2,
+    "count": 5,
+    "priority": "low"
+}, { "team": "d", "cycleTime": 3, "effort": 3, "count": 8, "priority": "medium" }, {
+    "team": "d",
+    "cycleTime": 4,
+    "effort": 4,
+    "count": 3,
+    "priority": "high"
+}, { "team": "l", "cycleTime": 2, "effort": 1, "count": 1, "priority": "low" }, {
+    "team": "l",
+    "cycleTime": 3,
+    "effort": 2,
+    "count": 5,
+    "priority": "low"
+}, { "team": "l", "cycleTime": 4, "effort": 3, "count": 8, "priority": "medium" }, {
+    "team": "l",
+    "cycleTime": 5,
+    "effort": 4,
+    "count": 3,
+    "priority": "high"
+}, { "team": "k", "cycleTime": 2, "effort": 4, "count": 1, "priority": "low" }, {
+    "team": "k",
+    "cycleTime": 3,
+    "effort": 5,
+    "count": 5,
+    "priority": "low"
+}, { "team": "k", "cycleTime": 4, "effort": 6, "count": 8, "priority": "medium" }, {
+    "team": "k",
+    "cycleTime": 5,
+    "effort": 8,
+    "count": 3,
+    "priority": "high"
+}];
+var chart = new tauCharts.Chart({
+    guide: {
+        x: { label: 'Cycle Time in days' },
+        y: { label: 'Effort in points' },
+        padding: { b: 40, l: 40, t: 10, r: 10 },
+        color: {
+            brewer: ['color-red', 'color-green', 'color-blue']
+        }
+    },
+    data: defData,
+    type: 'scatterplot',
+    x: 'cycleTime',
+    y: 'effort',
+    color: 'team',
+    size: 'count'
+});
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
-        console.log('Component mounted.');
+        chart.renderTo('#scatter');
     }
 });
 
@@ -47342,38 +47385,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { attrs: { id: "scatter" } })
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card card-default" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-7168fb6a", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-b4f562f6", module.exports)
   }
 }
 

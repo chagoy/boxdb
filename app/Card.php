@@ -24,6 +24,16 @@ class Card extends Model
     	return $this->belongsTo(Network::class);
     }
 
+    public function getAverageAttribute()
+    {
+        $views = array();
+        foreach ($this->fights as $fight) {
+            array_push($views, $fight->views->average);
+        }
+
+        return $views;
+    }
+
     public function getFormatDateAttribute()
     {
         return Carbon::parse($this->date)->toFormattedDateString();

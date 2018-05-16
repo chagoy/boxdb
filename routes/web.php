@@ -29,4 +29,5 @@ Route::post('/cards/store', 'CardController@store');
 Route::get('/cards', 'CardController@index');
 Route::get('/cards/{card}', 'CardController@show');
 
+Route::get('/networks', 'NetworkController@index');
 Route::get('/networks/{network}', 'NetworkController@show');

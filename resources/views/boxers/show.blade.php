@@ -21,7 +21,6 @@
 			<tbody>
 				@foreach ($allFights as $fight) 
 					<tr>
-						{{-- {{ dd($fight) }} --}}
 						<td>{{ $fight->date }}</td>
 						<td><a href="{{ $fight->network->path() }}">{{ $fight->network->name }}</a></td>
 						<td><a href="{{ $fight->asideBoxer->path() }}">{{ $fight->asideBoxer->full_name }}</a></td>
@@ -31,5 +30,6 @@
 				@endforeach
 			</tbody>
 		</table>
+		<div id="scatter"></div>
 	</div>
 @endsection

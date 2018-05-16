@@ -14,7 +14,7 @@ class Fight extends Model
 
     protected $with = ['asideBoxer', 'bsideBoxer', 'views'];
 
-    //protected $appends = ['aside', 'bside'];
+    protected $appends = ['date'];
 
     public function card()
     {
@@ -52,6 +52,6 @@ class Fight extends Model
     {
         $card = Card::where('id', $this->card_id)->first();
         
-        return Carbon::parse($card->date)->toFormattedDateString();
+        return $card->format_date;
     }
 }
