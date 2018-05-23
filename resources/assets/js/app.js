@@ -15,7 +15,7 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('viewer-chart', require('./components/ViewerChart.vue'));
+Vue.component('network-chart', require('./components/NetworkChart.vue'));
 
 const app = new Vue({
     el: '#app'

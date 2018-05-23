@@ -18,13 +18,11 @@ class NetworkController extends Controller
 
     public function show(Network $network)
     {
-    	$views = \DB::table('views')
-            ->leftJoin('fights', 'views.fight_id', '=', 'fights.id')
-            ->leftJoin('cards', 'fights.card_id', '=', 'cards.id')
-            ->where('cards.network_id', $network->id)
-            ->get()
-            ->pluck('average')
-            ->toArray();
-    	return view('networks.show', compact('network', 'views'));
+    	$data = $network->views();
+
+        $dates = $data->pluck('date')->toArray();
+        $views = $data->pluck('average')->toArray();
+
+    	return view('networks.show', compact('network', 'views',  'dates', 'data'));
     }
 }

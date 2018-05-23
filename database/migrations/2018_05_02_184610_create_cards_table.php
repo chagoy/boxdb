@@ -17,8 +17,9 @@ class CreateCardsTable extends Migration
             $table->increments('id');
             $table->datetime('date');
             $table->boolean('ppv')->default(false);
-            $table->integer('network_id');
+            $table->integer('network_id')->unsigned();
             $table->string('venue');
+            $table->string('image_path')->nullable();
             $table->timestamps();
         });
     }

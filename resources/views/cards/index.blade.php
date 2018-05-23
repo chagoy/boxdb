@@ -27,4 +27,5 @@
 			</tbody>
 		</table>
 	</div>
+	<a href="#" uk-totop uk-scroll></a>
 @endsection

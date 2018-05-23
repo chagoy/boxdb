@@ -24,7 +24,7 @@
 						<td><a href="/cards/{{ $card->id }}">{{ $card->format_date }}</a></td>
 						<td><a href="{{ $card->fights[0]->asideBoxer->path() }}">{{ $card->fights[0]->asideBoxer->full_name}}</a></td>
 						<td><a href="{{ $card->fights[0]->bsideBoxer->path() }}">{{ $card->fights[0]->bsideBoxer->full_name}}</a></td>
-						<td>{{ number_format(array_sum($card->average)) }}</td>
+						<td>{{ $card->average }}</td>
 					</tr>
 				@endforeach
 			</tbody>
@@ -32,6 +32,14 @@
 	@else
 		<p>No cards to display</p>
 	@endif
+	<div>
+		<h3 class="uk-text-center">All Time Viewers Graph</h3>
+		<network-chart :dates="{{ json_encode($dates) }}" 
+					:views="{{ json_encode($views) }}" 
+					:data="{{ json_encode($data) }}" 
+					:width="500" 
+					:height="200"></network-chart>
+	</div>
 </div>
 @endsection
 

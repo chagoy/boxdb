@@ -23,6 +23,17 @@ class BoxerController extends Controller
     {
         $fights = $boxer->allFights();
         $allFights = $fights[0]->merge($fights[1]);
+
+        $data = \DB::table('views')
+            ->leftJoin('fights', 'views.fight_id', '=', 'fights.id')
+            ->leftJoin('cards', 'fights.card_id', '=', 'cards.id')
+            ->where('fights.aside', $boxer->id)
+            ->orWhere('fights.bside', $boxer->id)
+            ->get()
+            ->sortBy('date');
+
+        $average = $data->pluck('average')->toArray();
+        $date = $data->pluck('date')->toArray();
         
         return view('boxers.show', compact('boxer', 'allFights'));
     }

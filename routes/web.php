@@ -31,3 +31,6 @@ Route::get('/cards/{card}', 'CardController@show');
 
 Route::get('/networks', 'NetworkController@index');
 Route::get('/networks/{network}', 'NetworkController@show');
+
+Route::post('/boxers/{boxer}/upload', 'UploadController@store');
+Route::post('/cards/{card}/upload', 'UploadController@cardStore');

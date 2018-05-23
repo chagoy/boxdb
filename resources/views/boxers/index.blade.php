@@ -28,10 +28,10 @@
 		</div>
 		<h4>the rest of the guys</h4>
 		@foreach ($boxers as $division)
-			<strong>division</strong>
+			<strong>{{ $division[0]->weight->division }} - {{ $division[0]->weight->pounds }} pounds</strong>
 			<ul>
 				@foreach ($division  as $boxer) 
-					{{ $boxer }}
+					<li><a href="{{ $boxer->path() }}">{{ $boxer->full_name }}</a></li>
 				@endforeach
 			</ul>
 		@endforeach

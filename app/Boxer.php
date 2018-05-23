@@ -5,6 +5,7 @@ namespace App;
 use App\Fight;
 use App\Weight;
 
+
 use Illuminate\Database\Eloquent\Model;
 
 class Boxer extends Model
@@ -55,23 +56,29 @@ class Boxer extends Model
         return $this->first_name . ' ' . $this->last_name;
     }
 
+    public function getImagePathAttribute($image)
+    {
+        return $image ?: '/images/default.png';
+    }
+
+    public function getNumbersRecordAttribute() 
+    {
+        if ($this->draws) {
+            return "$this->wins($this->knockouts)-$this->losses-$this->draws";
+        }
+        return "$this->wins($this->knockouts)-$this->losses";
+    }
+
+    public function getVerboseRecordAttribute()
+    {
+        if ($this->draws) {
+            return "Wins: $this->wins Losses: $this->losses Draws: $this->draws Knockouts: $this->knockouts";
+        }
+        return "Wins: $this->wins Losses: $this->losses KOs: $this->knockouts";
+    }
+
     public function getTotalViewersAttribute()
     {
-        //$m[0][0]['views']->average     
-        // $fightIds = Fight::where('aside', $this->id)->orWhere('bside', $this->id)->pluck('id');
-
-        // $viewerArray = array();
-        
-        // foreach ($fightIds as $id) {
-        //     $views = View::where('fight_id', $id)->pluck('average');
-        //     array_push($viewerArray, $views[0]);
-        // }
-
-        // $sum = array_sum($viewerArray);
-        // $average = array_sum($viewerArray)/count($viewerArray);
-
-        // return ['sum' => number_format($sum), 'avg' => number_format($average)];
-
         $array = $this->allFights();
         $fights = $array[0]->merge($array[1]);
         $views = array();
@@ -79,5 +86,10 @@ class Boxer extends Model
             array_push($views, $fight->views->average);
         }
         return ['average' => number_format(array_sum($views)/count($views)), 'sum' => number_format(array_sum($views))];
+    }
+
+    public function getKoPctAttribute()
+    {
+        return $this->knockouts / $this->wins + $this->losses + $this->draws;
     }
 }

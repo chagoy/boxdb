@@ -24,6 +24,7 @@ class CreateBoxersTable extends Migration
             $table->integer('losses')->default(0)->unsigned();
             $table->integer('draws')->default(0)->unsigned();
             $table->integer('knockouts')->default(0)->unsigned();
+            $table->string('image_path')->nullable();
             $table->timestamps();
         });
     }

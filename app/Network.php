@@ -33,4 +33,14 @@ class Network extends Model
 		}
 		return $fights;
 	}
+
+	public function views()
+	{
+		return \DB::table('views')
+            ->leftJoin('fights', 'views.fight_id', '=', 'fights.id')
+            ->leftJoin('cards', 'fights.card_id', '=', 'cards.id')
+            ->where('cards.network_id', $this->id)
+            ->get()
+            ->sortBy('date');
+	}
 }
