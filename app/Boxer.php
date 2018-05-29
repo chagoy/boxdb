@@ -5,7 +5,6 @@ namespace App;
 use App\Fight;
 use App\Weight;
 
-
 use Illuminate\Database\Eloquent\Model;
 
 class Boxer extends Model

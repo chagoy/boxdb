@@ -16,7 +16,6 @@
         @endif
     	</div>
 	</div>
-	</div>
 	<div class="uk-container">
 		<table class="uk-table uk-table-striped uk-table-hover">
 			<thead>
@@ -31,7 +30,7 @@
 			<tbody>
 				@foreach ($allFights as $fight) 
 					<tr>
-						<td>{{ $fight->date }}</td>
+						<td>{{ $fight->formatted_date }}</td>
 						<td><a href="{{ $fight->network->path() }}">{{ $fight->network->name }}</a></td>
 						<td><a href="{{ $fight->asideBoxer->path() }}">{{ $fight->asideBoxer->full_name }}</a></td>
 						<td><a href="{{ $fight->bsideBoxer->path() }}">{{ $fight->bsideBoxer->full_name }}</a></td>
@@ -40,6 +39,19 @@
 				@endforeach
 			</tbody>
 		</table>
-		{{-- <div id="scatter"></div> --}}
+		@if (count($dates) > 2)
+			<h3>Average All-Time Viewers</h3>
+			<boxer-chart :dates="{{ json_encode($dates) }}" 
+					:views="{{ json_encode($average) }}" 
+					:totalaverage="{{ json_encode($totalAverage) }}"
+					:totaldates="{{ json_encode($totalDates) }}"
+					:boxernums="{{ json_encode($boxernums) }}"
+					:alltime="{{ json_encode($alltime)}}"
+					:width="500" 
+					:height="200"></boxer-chart>
+		@else 
+			<p>There aren't enough fights in the database to render a graph.</p>
+		@endif
+
 	</div>
 @endsection

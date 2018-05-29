@@ -5,7 +5,7 @@
 <div class="uk-section-xsmall uk-section-secondary">
 	<div class="uk-container">
 		<h1 class="uk-heading-line uk-text-center"><span>{{ $card->fights[0]->asideBoxer->full_name }} vs {{ $card->fights[0]->bsideBoxer->full_name }}</span></h1>
-		<h3 class="uk-text-center">{{ $card->format_date }} - {{ $card->venue }} - {{ $network->name }}</h3>
+		<h3 class="uk-text-center">{{ $card->format_date }} - <a href="{{ $card->venue->path() }}">{{ $card->venue->venue }}</a> - {{ $network->name }}</h3>
 		<h3 class="uk-text-center">Average Viewers: {{ $card->average }}</h3>
 	</div>
 </div>

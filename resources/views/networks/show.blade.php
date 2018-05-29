@@ -19,7 +19,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				@foreach ($network->cards as $card)
+				@foreach ($network->cards->sortByDesc('date') as $card)
 					<tr>
 						<td><a href="/cards/{{ $card->id }}">{{ $card->format_date }}</a></td>
 						<td><a href="{{ $card->fights[0]->asideBoxer->path() }}">{{ $card->fights[0]->asideBoxer->full_name}}</a></td>

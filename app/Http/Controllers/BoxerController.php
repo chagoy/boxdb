@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Boxer;
 use App\Weight;
+use App\Card;
+use stdClass;
 
 use App\Http\Requests\BoxerSubmission;
 
@@ -22,7 +24,8 @@ class BoxerController extends Controller
     public function show(Boxer $boxer)
     {
         $fights = $boxer->allFights();
-        $allFights = $fights[0]->merge($fights[1]);
+        $newFights = $fights[0]->merge($fights[1]);
+        $allFights = $newFights->sortByDesc('date');
 
         $data = \DB::table('views')
             ->leftJoin('fights', 'views.fight_id', '=', 'fights.id')
@@ -33,9 +36,38 @@ class BoxerController extends Controller
             ->sortBy('date');
 
         $average = $data->pluck('average')->toArray();
-        $date = $data->pluck('date')->toArray();
+        $dates = $data->pluck('date')->toArray();
+        $boxernums = array();
+
+        for ($i = 0; $i < count($average); $i++) {
+            $object = new stdClass;
+            $object->x = $dates[$i];
+            $object->y = $average[$i];
+            array_push($boxernums, $object);
+        };
+
         
-        return view('boxers.show', compact('boxer', 'allFights'));
+        
+        $allViews = \DB::table('views')
+            ->leftJoin('fights', 'views.fight_id', '=', 'fights.id')
+            ->leftJoin('cards', 'fights.card_id', '=', 'cards.id')
+            ->whereBetween('date', [$dates[0], $dates[count($dates) - 1]])
+            ->get()
+            ->sortBy('date');
+
+        $totalAverage = $allViews->pluck('average')->toArray();
+        $totalDates = $allViews->pluck('date')->toArray();
+        
+        $alltime = array();
+
+        for ($i = 0; $i < count($totalAverage); $i++) {
+            $object = new stdClass;
+            $object->x = $totalDates[$i];
+            $object->y = $totalAverage[$i];
+            array_push($alltime, $object);
+        };
+        
+        return view('boxers.show', compact('boxer', 'allFights', 'average', 'dates', 'totalAverage', 'totalDates', 'alltime', 'boxernums'));
     }
 
     public function create() 

@@ -3,7 +3,7 @@
 
 	export default {
 		extends: Line,
-    props: ['views', 'dates'],
+    	props: ['views', 'dates'],
 
 		mounted() {
 			this.renderChart({

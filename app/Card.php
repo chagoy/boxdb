@@ -24,6 +24,11 @@ class Card extends Model
     	return $this->belongsTo(Network::class);
     }
 
+    public function venue()
+    {
+        return $this->belongsTo(Venue::class);
+    }
+
     public function getAverageAttribute()
     {
         $views = array();

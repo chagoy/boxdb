@@ -53,10 +53,17 @@ class Fight extends Model
         // return Network::where('id', $card->network->id)->first();
     }
 
-    public function getDateAttribute()
+    public function getFormattedDateAttribute()
     {
         $card = Card::where('id', $this->card_id)->first();
         
         return $card->format_date;
+    }
+
+    public function getDateAttribute()
+    {
+        $card = Card::where('id', $this->card_id)->first();
+        
+        return $card->date;
     }
 }
