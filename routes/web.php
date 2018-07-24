@@ -1,10 +1,5 @@
 <?php
-//USER STORIES
-//a user can look at a boxer's cards
-//a user can look at a card's ratings
-//a user can see fights that happened on a card
-//a user can add a boxer to the database
-//a user can add a card to the database
+
 Route::get('/', function () {
 	$boxers = \App\Boxer::get();
 
@@ -31,3 +26,14 @@ Route::get('/cards/{card}', 'CardController@show');
 
 Route::get('/networks', 'NetworkController@index');
 Route::get('/networks/{network}', 'NetworkController@show');
+
+Route::post('/boxers/{boxer}/upload', 'UploadController@store');
+Route::post('/cards/{card}/upload', 'UploadController@cardStore');
+
+Route::get('/compare/boxers/{aside}/{bside}', 'CompareController@show');
+Route::get('/compare/networks/{anetwork}/{bnetwork}', 'CompareController@network');
+
+Route::get('/venues', 'VenueController@index');
+Route::get('/venues/add', 'VenueController@create');
+Route::post('/venues/store', 'VenueController@store');
+Route::get('/venues/{venue}', 'VenueController@show');

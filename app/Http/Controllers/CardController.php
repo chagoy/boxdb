@@ -7,6 +7,7 @@ use App\Fight;
 use App\View;
 use App\Boxer;
 use App\Network;
+use App\Venue;
 
 use App\Http\Requests\CardSubmission;
 
@@ -22,12 +23,13 @@ class CardController extends Controller
     {
         $boxers = Boxer::get();
         $networks = Network::get();
-        return view('cards.create', compact('boxers', 'networks'));
+        $venues = Venue::get();
+        return view('cards.create', compact('boxers', 'networks', 'venues'));
     }
 
     public function show(Card $card)
     {
-        $network = Network::find($card->network_id)->first();
+        $network = Network::where('id', $card->network_id)->first();
         
         return view('cards.show', compact('card', 'network'));
     }
@@ -38,7 +40,7 @@ class CardController extends Controller
     		'ppv' => $request->ppv == 'true' ? true : false,
             'date' => Carbon::parse($request->date),
     		'network_id' => $request->network,
-    		'venue' => $request->venue,
+    		'venue_id' => $request->venue,
     	]);
 
         if ($card) {

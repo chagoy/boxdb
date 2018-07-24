@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Boxer;
 use App\Weight;
+use App\Card;
+use stdClass;
 
 use App\Http\Requests\BoxerSubmission;
 
@@ -21,10 +23,15 @@ class BoxerController extends Controller
 
     public function show(Boxer $boxer)
     {
-        $fights = $boxer->allFights();
-        $allFights = $fights[0]->merge($fights[1]);
-        
-        return view('boxers.show', compact('boxer', 'allFights'));
+        $allFights = $boxer->arrayOfFights();
+
+        $data = $boxer->views();
+
+        $boxernums = $boxer->coordinates();
+
+        $allViews = $boxer->allTimeCoordinates($boxernums[0]->x, $boxernums[count($boxernums) - 1]->x);
+
+        return view('boxers.show', compact('boxer', 'allFights', 'data', 'boxernums', 'allViews'));
     }
 
     public function create() 

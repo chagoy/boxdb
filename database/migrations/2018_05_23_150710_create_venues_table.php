@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCardsTable extends Migration
+class CreateVenuesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateCardsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cards', function (Blueprint $table) {
+        Schema::create('venues', function (Blueprint $table) {
             $table->increments('id');
-            $table->datetime('date');
-            $table->boolean('ppv')->default(false);
-            $table->integer('network_id')->unsigned();
-            $table->integer('venue_id')->unsigned();
+            $table->string('slug');
+            $table->string('venue');
+            $table->string('city');
+            $table->string('state');
+            $table->string('country');
             $table->string('image_path')->nullable();
             $table->timestamps();
         });
@@ -31,6 +32,6 @@ class CreateCardsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cards');
+        Schema::dropIfExists('venues');
     }
 }

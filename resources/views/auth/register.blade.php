@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+{{-- <div class="container">
     <div class="uk-card uk-card-large uk-card-body uk-width-1-2@m">
         <form method="POST" action="{{ route('register') }}">
             @csrf
@@ -25,12 +25,12 @@
                     <input name="password_confirmation" type="password" class="uk-input" placeholder="confirm your password">
                 </div>
                 
-                <button class="uk-button uk-button-secondary" type="submit">Submit</button>
+                <button type="submit" class="uk-button uk-button-secondary">{{ __('Register') }}</button>
             </fieldset>
         </form>
     </div>
-</div>
-{{-- 
+</div> --}}
+
 
 <div class="container">
     <div class="row justify-content-center">
@@ -103,6 +103,6 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 </div>
 @endsection

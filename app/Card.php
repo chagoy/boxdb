@@ -24,6 +24,11 @@ class Card extends Model
     	return $this->belongsTo(Network::class);
     }
 
+    public function venue()
+    {
+        return $this->belongsTo(Venue::class);
+    }
+
     public function getAverageAttribute()
     {
         $views = array();
@@ -31,7 +36,12 @@ class Card extends Model
             array_push($views, $fight->views->average);
         }
 
-        return $views;
+        return number_format(array_sum($views) / count($views));
+    }
+
+    public function getHeadlineAttribute()
+    {
+        return $this->fights[0]->headline;
     }
 
     public function getFormatDateAttribute()

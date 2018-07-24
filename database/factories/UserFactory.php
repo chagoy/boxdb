@@ -36,12 +36,22 @@ $factory->define(App\Boxer::class, function(Faker $faker) {
 	];
 });
 
+$factory->define(App\Venue::class, function(Faker $faker) {
+	return [
+		'venue' => $slug = $faker->company . ' Arena',
+		'city' => $faker->city,
+		'state' => $faker->state,
+		'country' => $faker->country,
+		'slug' => str_slug($slug)
+	];
+});
+
 $factory->define(App\Card::class, function (Faker $faker){
 	return [
 		'date' => $faker->dateTimeThisDecade($max = 'now', $timezone = null),
 		'ppv' => $faker->boolean($chanceOfGettingTrue = 50),
 		'network_id' => $faker->numberBetween($min = 1, $max = 12),
-		'venue' => $faker->company . ' arena',
+		'venue_id' => $faker->numberBetween($min = 1, $max = 50),
 	];
 });
 

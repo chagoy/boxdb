@@ -10,6 +10,7 @@
 					<ul class="uk-nav uk-navbar-dropdown-nav">
 						<li class="uk-active"><a href="/boxers/add">Boxer</a></li>
 						<li class="uk-active"><a href="/cards/add">Card</a></li>
+						<li class="uk-active"><a href="/venues/add">Venue</a></li>
 					</ul>
 				</div>
 			</li>
@@ -20,6 +21,7 @@
 						<li class="uk-active"><a href="/boxers">Boxers</a></li>
 						<li><a href="/cards">Cards</a></li>
 						<li><a href="/networks">Networks</a></li>
+						<li><a href="/venues">Venues</a></li>
 					</ul>
 				</div>
 			</li>
@@ -34,7 +36,7 @@
 			</ul>
 		</div>
 	</div>
-	<div class="uk-navbar-right">
+	{{-- <div class="uk-navbar-right">
 		<div class="uk-navbar-item">
 			<form action="">
 				<input type="text" class="uk-input uk-form-width-small" placeholder="search">
@@ -46,5 +48,5 @@
 				<a href="/register">Register</a>
 			</li>
 		</ul>
-	</div>
+	</div> --}}
 </nav>

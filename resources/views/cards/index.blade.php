@@ -2,7 +2,7 @@
 
 @section ('content')
 	<div class="uk-container">
-		<table class="uk-table uk-table-striped uk-table-hover">
+		<table class="uk-table uk-table-striped uk-table-hover" id="datatable">
 			<thead>
 				<tr>
 					<th>Date</th>
@@ -13,7 +13,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				@foreach ($cards as $card)
+				@foreach ($cards->sortByDesc('date') as $card)
 					<tr>
 						<td><a href="/cards/{{ $card->id }}">{{ $card->format_date }}</a></td>
 						<td><a href="/networks/{{ $card->network->slug }}">{{ $card->network->name }}</a></td>
@@ -27,4 +27,5 @@
 			</tbody>
 		</table>
 	</div>
+	<a href="#" uk-totop uk-scroll></a>
 @endsection

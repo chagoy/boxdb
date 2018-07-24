@@ -11,20 +11,19 @@ class NetworkController extends Controller
 {
 	public function index()
 	{
-		$networks = Network::get();
-		
+		$networks = Network::get()->sortBy('name');
+
 		return view('networks.index', compact('networks'));
 	}
 
     public function show(Network $network)
     {
-    	$views = \DB::table('views')
-            ->leftJoin('fights', 'views.fight_id', '=', 'fights.id')
-            ->leftJoin('cards', 'fights.card_id', '=', 'cards.id')
-            ->where('cards.network_id', $network->id)
-            ->get()
-            ->pluck('average')
-            ->toArray();
-    	return view('networks.show', compact('network', 'views'));
+    	$views = $network->views();
+
+        $networknums = $network->coordinates();
+
+        $allViews = $network->allTimeCoordinates($networknums[0]->x, $networknums[count($networknums) - 1]->x);
+        
+    	return view('networks.show', compact('network', 'views', 'networknums', 'allViews'));
     }
 }

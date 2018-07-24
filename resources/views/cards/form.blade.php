@@ -2,7 +2,7 @@
 	@csrf
 	<div class="uk-width-1-2@s">
 		<label for="">A Side Fighter</label>
-		<select name="aside" class="uk-select {{ $errors->has('aside') ? ' uk-form-danger' : '' }}" id="aside">
+		<select name="aside" class="uk-select aside-first-name-select {{ $errors->has('aside') ? ' uk-form-danger' : '' }}" id="aside">
 			@foreach ($boxers as $boxer)
 				<option value="{{ $boxer->id }}">{{ $boxer->full_name }}</option>
 			@endforeach
@@ -11,7 +11,7 @@
 	</div>
 	<div class="uk-width-1-2@s">
 		<label for="">B Side Fighter</label>
-		<select name="bside" class="uk-select {{ $errors->has('aside') ? ' uk-form-danger' : '' }}" id="bside">
+		<select name="bside" class="uk-select bside-first-name-select {{ $errors->has('aside') ? ' uk-form-danger' : '' }}" id="bside">
 			@foreach ($boxers as $boxer)
 				<option value="{{ $boxer->id }}">{{ $boxer->full_name }}</option>
 			@endforeach
@@ -35,7 +35,12 @@
 	</div>
 	<div class="uk-width-1-4@s">
 		<label for="venue" class="uk-form-label">Venue</label>
-		<input type="text" class="uk-input {{ $errors->has('venue') ? ' uk-form-danger' : '' }}" name="venue" placeholder="Barclays Center..." value="{{ old('venue') }}">
+		<select name="venue" id="venue" class="uk-select {{ $errors->has('venue') ? ' uk-form-danger' : '' }}">
+				<option value="">--venue</option>
+			@foreach ($venues as $venue)
+				<option value="{{ $venue->id }}">{{ $venue->venue }}</option>
+			@endforeach
+		</select>
 		<p class="uk-text-meta uk-text-danger">{{ $errors->first('venue') }}</p>
 	</div>
 	<div class="uk-width-1-4@s">

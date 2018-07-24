@@ -15,8 +15,16 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('viewer-chart', require('./components/ViewerChart.vue'));
+Vue.component('network-chart', require('./components/NetworkChart.vue'));
+Vue.component('boxer-chart', require('./components/BoxerChart.vue'));
+Vue.component('history-chart', require('./components/HistoryChart.vue'));
+Vue.component('compare-chart', require('./components/CompareChart.vue'));
 
 const app = new Vue({
     el: '#app'
+});
+
+$(document).ready(function() {
+    $('.aside-first-name-select').select2();
+    $('.bside-first-name-select').select2();
 });

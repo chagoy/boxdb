@@ -41,6 +41,11 @@ class Fight extends Model
         return $this->hasOne(View::class);
     }
 
+    public function getHeadlineAttribute()
+    {
+        return $this->asideBoxer->last_name . '-' . $this->bsideBoxer->last_name;
+    }
+
     public function getNetworkAttribute()
     {
         $card = Card::where('id', $this->card_id)->with('network')->first();
@@ -48,10 +53,17 @@ class Fight extends Model
         // return Network::where('id', $card->network->id)->first();
     }
 
-    public function getDateAttribute()
+    public function getFormattedDateAttribute()
     {
         $card = Card::where('id', $this->card_id)->first();
         
         return $card->format_date;
+    }
+
+    public function getDateAttribute()
+    {
+        $card = Card::where('id', $this->card_id)->first();
+        
+        return $card->date;
     }
 }
