@@ -36,17 +36,17 @@
 			</ul>
 		</div>
 	</div>
-	{{-- <div class="uk-navbar-right">
-		<div class="uk-navbar-item">
+	<div class="uk-navbar-right">
+		{{-- <div class="uk-navbar-item">
 			<form action="">
 				<input type="text" class="uk-input uk-form-width-small" placeholder="search">
 				<button class="uk-button uk-button-default">Submit</button>
 			</form>
-		</div>
+		</div> --}}
 		<ul class="uk-navbar-nav">
 			<li class="uk-navbar-item">
 				<a href="/register">Register</a>
 			</li>
 		</ul>
-	</div> --}}
+	</div>
 </nav>
