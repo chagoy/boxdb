@@ -11,13 +11,13 @@
 			      datasets: [
 			        {
 			          label: 'Average Viewers',
-			          backgroundColor: 'rgba(18, 78, 120, 1)',
+			          backgroundColor: 'rgba(0, 107, 166, 0.5)',
 			          pointRadius: 0.5,
 			          data: this.networknums
 			        },
 			        {
 			          label: 'Average Viewers',
-			          backgroundColor: 'rgba(100, 157, 116, 0.9)',
+			          backgroundColor: 'rgba(92, 148, 110, 0.5)',
 			          pointRadius: 0.5,
 			          data: this.alltime
 			        }
@@ -35,7 +35,7 @@
           yAxes: [{
             ticks: {
               min: 40000,
-              max: 2000000
+              max: 5000000
             },
             // scaleSteps: 5,
           }]

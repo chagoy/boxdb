@@ -35,7 +35,7 @@
           yAxes: [{
             ticks: {
               min: 40000,
-              max: 2000000
+              max: 5000000
             },
             // scaleSteps: 5,
             //travis login
