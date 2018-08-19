@@ -19,6 +19,7 @@ Vue.component('network-chart', require('./components/NetworkChart.vue'));
 Vue.component('boxer-chart', require('./components/BoxerChart.vue'));
 Vue.component('history-chart', require('./components/HistoryChart.vue'));
 Vue.component('compare-chart', require('./components/CompareChart.vue'));
+Vue.component('compare-boxers', require('./components/CompareBoxers.vue'));
 
 const app = new Vue({
     el: '#app'
@@ -27,4 +28,6 @@ const app = new Vue({
 $(document).ready(function() {
     $('.aside-first-name-select').select2();
     $('.bside-first-name-select').select2();
+    $('.venue-select').select2();
+    // $('.sortingTable').DataTable();
 });

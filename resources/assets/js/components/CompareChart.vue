@@ -11,13 +11,13 @@
 				datasets: [
 					{
 						label: this.anetwork.name,
-						backgroundColor: 'rgba(99, 32, 238, .5)',
+						backgroundColor: 'rgba(17, 46, 120, 0.29)',
 						pointRadius: 0.7,
 						data: this.anums
 					},
 					{
 						label: this.bnetwork.name,
-						backgroundColor: 'rgba(52, 89, 149, .5)',
+						backgroundColor: 'rgba(227, 43, 43, 0.5)',
 						pointRadius: 0.7, 
 						data: this.bnums
 					}

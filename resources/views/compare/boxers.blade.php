@@ -8,7 +8,7 @@
 		</div>
 	</div>
 
-	<compare-chart
+	<compare-boxers
 		:dates="{{ json_encode($dates) }}"
 		:aside="{{ json_encode($aside) }}"
 		:bside="{{ json_encode($bside) }}"
@@ -16,5 +16,5 @@
 		:bsidenums="{{ json_encode($bsidenums) }}"
 		:width="500" 
 		:height="200"
-	></compare-chart>
+	></compare-boxers>
 @endsection

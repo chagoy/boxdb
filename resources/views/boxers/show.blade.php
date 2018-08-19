@@ -42,6 +42,7 @@
 		@if (count($allFights) > 2)
 			<h3>Average All-Time Viewers</h3>
 			<boxer-chart 
+					:boxer="{{ json_encode($boxer->full_name) }}"
 					:boxernums="{{ json_encode($boxernums) }}"
 					:alltime="{{ json_encode($allViews->coordinates)}}"
 					:totaldates="{{ json_encode($allViews->totalDates) }}"

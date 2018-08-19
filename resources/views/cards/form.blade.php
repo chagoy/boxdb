@@ -35,7 +35,7 @@
 	</div>
 	<div class="uk-width-1-4@s">
 		<label for="venue" class="uk-form-label">Venue</label>
-		<select name="venue" id="venue" class="uk-select {{ $errors->has('venue') ? ' uk-form-danger' : '' }}">
+		<select name="venue" id="venue" class="uk-select venue-select {{ $errors->has('venue') ? ' uk-form-danger' : '' }}">
 				<option value="">--venue</option>
 			@foreach ($venues as $venue)
 				<option value="{{ $venue->id }}">{{ $venue->venue }}</option>

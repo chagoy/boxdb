@@ -5083,6 +5083,43 @@ module.exports = g;
 
 /***/ }),
 /* 7 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export VueCharts */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_index_js__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__BaseCharts__ = __webpack_require__(179);
+/* unused harmony reexport Bar */
+/* unused harmony reexport HorizontalBar */
+/* unused harmony reexport Doughnut */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["e"]; });
+/* unused harmony reexport Pie */
+/* unused harmony reexport PolarArea */
+/* unused harmony reexport Radar */
+/* unused harmony reexport Bubble */
+/* unused harmony reexport Scatter */
+/* unused harmony reexport mixins */
+/* unused harmony reexport generateChart */
+
+
+var VueCharts = {
+  Bar: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["a" /* Bar */],
+  HorizontalBar: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["d" /* HorizontalBar */],
+  Doughnut: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["c" /* Doughnut */],
+  Line: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["e" /* Line */],
+  Pie: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["f" /* Pie */],
+  PolarArea: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["g" /* PolarArea */],
+  Radar: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["h" /* Radar */],
+  Bubble: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["b" /* Bubble */],
+  Scatter: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["i" /* Scatter */],
+  mixins: __WEBPACK_IMPORTED_MODULE_0__mixins_index_js__["a" /* default */],
+  generateChart: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["j" /* generateChart */]
+};
+/* unused harmony default export */ var _unused_webpack_default_export = (VueCharts);
+
+
+/***/ }),
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5508,7 +5545,7 @@ module.exports = {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5585,7 +5622,7 @@ module.exports = {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -5691,43 +5728,6 @@ module.exports = function normalizeComponent (
     options: options
   }
 }
-
-
-/***/ }),
-/* 10 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export VueCharts */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_index_js__ = __webpack_require__(178);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__BaseCharts__ = __webpack_require__(179);
-/* unused harmony reexport Bar */
-/* unused harmony reexport HorizontalBar */
-/* unused harmony reexport Doughnut */
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["e"]; });
-/* unused harmony reexport Pie */
-/* unused harmony reexport PolarArea */
-/* unused harmony reexport Radar */
-/* unused harmony reexport Bubble */
-/* unused harmony reexport Scatter */
-/* unused harmony reexport mixins */
-/* unused harmony reexport generateChart */
-
-
-var VueCharts = {
-  Bar: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["a" /* Bar */],
-  HorizontalBar: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["d" /* HorizontalBar */],
-  Doughnut: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["c" /* Doughnut */],
-  Line: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["e" /* Line */],
-  Pie: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["f" /* Pie */],
-  PolarArea: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["g" /* PolarArea */],
-  Radar: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["h" /* Radar */],
-  Bubble: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["b" /* Bubble */],
-  Scatter: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["i" /* Scatter */],
-  mixins: __WEBPACK_IMPORTED_MODULE_0__mixins_index_js__["a" /* default */],
-  generateChart: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["j" /* generateChart */]
-};
-/* unused harmony default export */ var _unused_webpack_default_export = (VueCharts);
 
 
 /***/ }),
@@ -32742,6 +32742,7 @@ Vue.component('network-chart', __webpack_require__(176));
 Vue.component('boxer-chart', __webpack_require__(227));
 Vue.component('history-chart', __webpack_require__(229));
 Vue.component('compare-chart', __webpack_require__(231));
+Vue.component('compare-boxers', __webpack_require__(238));
 
 var app = new Vue({
   el: '#app'
@@ -32750,6 +32751,8 @@ var app = new Vue({
 $(document).ready(function () {
   $('.aside-first-name-select').select2();
   $('.bside-first-name-select').select2();
+  $('.venue-select').select2();
+  // $('.sortingTable').DataTable();
 });
 
 /***/ }),
@@ -65998,7 +66001,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(9)
+var normalizeComponent = __webpack_require__(10)
 /* script */
 var __vue_script__ = __webpack_require__(177)
 /* template */
@@ -66046,19 +66049,19 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__ = __webpack_require__(7);
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 		extends: __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__["a" /* Line */],
-		props: ['networknums', 'alltime', 'totaldates'],
+		props: ['networknums', 'alltime', 'totaldates', 'network'],
 
 		mounted: function mounted() {
 				this.renderChart({
 						labels: this.totaldates,
 						datasets: [{
-								label: 'Average Viewers',
+								label: this.network.name,
 								backgroundColor: 'rgba(0, 107, 166, 0.5)',
 								pointRadius: 0.5,
 								data: this.networknums
@@ -66307,10 +66310,10 @@ Chart.defaults = __webpack_require__(2);
 Chart.Element = __webpack_require__(4);
 Chart.elements = __webpack_require__(5);
 Chart.Interaction = __webpack_require__(23);
-Chart.layouts = __webpack_require__(7);
+Chart.layouts = __webpack_require__(8);
 Chart.platform = __webpack_require__(24);
 Chart.plugins = __webpack_require__(25);
-Chart.Ticks = __webpack_require__(8);
+Chart.Ticks = __webpack_require__(9);
 
 __webpack_require__(196)(Chart);
 __webpack_require__(197)(Chart);
@@ -70082,7 +70085,7 @@ module.exports = function(Chart) {
 var defaults = __webpack_require__(2);
 var helpers = __webpack_require__(1);
 var Interaction = __webpack_require__(23);
-var layouts = __webpack_require__(7);
+var layouts = __webpack_require__(8);
 var platform = __webpack_require__(24);
 var plugins = __webpack_require__(25);
 
@@ -71372,7 +71375,7 @@ module.exports = function(Chart) {
 
 var defaults = __webpack_require__(2);
 var helpers = __webpack_require__(1);
-var layouts = __webpack_require__(7);
+var layouts = __webpack_require__(8);
 
 module.exports = function(Chart) {
 
@@ -71426,7 +71429,7 @@ module.exports = function(Chart) {
 var defaults = __webpack_require__(2);
 var Element = __webpack_require__(4);
 var helpers = __webpack_require__(1);
-var Ticks = __webpack_require__(8);
+var Ticks = __webpack_require__(9);
 
 defaults._set('scale', {
 	display: true,
@@ -73656,7 +73659,7 @@ module.exports = function(Chart) {
 
 var defaults = __webpack_require__(2);
 var helpers = __webpack_require__(1);
-var Ticks = __webpack_require__(8);
+var Ticks = __webpack_require__(9);
 
 module.exports = function(Chart) {
 
@@ -73853,7 +73856,7 @@ module.exports = function(Chart) {
 
 
 var helpers = __webpack_require__(1);
-var Ticks = __webpack_require__(8);
+var Ticks = __webpack_require__(9);
 
 /**
  * Generate a set of logarithmic ticks
@@ -74208,7 +74211,7 @@ module.exports = function(Chart) {
 
 var defaults = __webpack_require__(2);
 var helpers = __webpack_require__(1);
-var Ticks = __webpack_require__(8);
+var Ticks = __webpack_require__(9);
 
 module.exports = function(Chart) {
 
@@ -78060,7 +78063,7 @@ module.exports = {
 var defaults = __webpack_require__(2);
 var Element = __webpack_require__(4);
 var helpers = __webpack_require__(1);
-var layouts = __webpack_require__(7);
+var layouts = __webpack_require__(8);
 
 var noop = helpers.noop;
 
@@ -78643,7 +78646,7 @@ module.exports = {
 var defaults = __webpack_require__(2);
 var Element = __webpack_require__(4);
 var helpers = __webpack_require__(1);
-var layouts = __webpack_require__(7);
+var layouts = __webpack_require__(8);
 
 var noop = helpers.noop;
 
@@ -78897,7 +78900,7 @@ module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(9)
+var normalizeComponent = __webpack_require__(10)
 /* script */
 var __vue_script__ = __webpack_require__(228)
 /* template */
@@ -78945,21 +78948,29 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__ = __webpack_require__(7);
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   extends: __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__["a" /* Line */],
-  props: ['boxernums', 'alltime', 'totaldates'],
-
+  props: ['boxernums', 'alltime', 'totaldates', 'boxer'],
+  // data() {
+  //   return {
+  //     options: {
+  //       responsive: true,
+  //       maintainAspectRatio: false
+  //     }
+  //   }
+  // },
   mounted: function mounted() {
     this.renderChart({
       labels: this.totaldates,
       datasets: [{
-        label: 'Average Viewers',
-        backgroundColor: 'rgba(0, 107, 166, 0.5)',
-        pointRadius: 0.9,
+        label: this.boxer + '\'s Ratings',
+        pointRadius: 3.2,
+        // backgroundColor: 'rgba(0, 107, 166, 0.5)',
         data: this.boxernums
       }, {
         label: 'Total Ever Viewers During This Boxer\'s Career',
@@ -78980,7 +78991,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         yAxes: [{
           ticks: {
             min: 40000,
-            max: 5000000
+            max: 6000000
           }
           // scaleSteps: 5,
           //travis login
@@ -78999,7 +79010,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(9)
+var normalizeComponent = __webpack_require__(10)
 /* script */
 var __vue_script__ = __webpack_require__(230)
 /* template */
@@ -79047,7 +79058,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__ = __webpack_require__(7);
 
 
 
@@ -79060,7 +79071,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(9)
+var normalizeComponent = __webpack_require__(10)
 /* script */
 var __vue_script__ = __webpack_require__(232)
 /* template */
@@ -79108,7 +79119,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__ = __webpack_require__(7);
 
 
 
@@ -79121,12 +79132,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			labels: this.dates,
 			datasets: [{
 				label: this.anetwork.name,
-				backgroundColor: 'rgba(99, 32, 238, .5)',
+				backgroundColor: 'rgba(17, 46, 120, 0.29)',
 				pointRadius: 0.7,
 				data: this.anums
 			}, {
 				label: this.bnetwork.name,
-				backgroundColor: 'rgba(52, 89, 149, .5)',
+				backgroundColor: 'rgba(227, 43, 43, 0.5)',
 				pointRadius: 0.7,
 				data: this.bnums
 			}]
@@ -79156,6 +79167,132 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 234 */,
+/* 235 */,
+/* 236 */,
+/* 237 */,
+/* 238 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(10)
+/* script */
+var __vue_script__ = __webpack_require__(239)
+/* template */
+var __vue_template__ = null
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/CompareBoxers.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-128bd74e", Component.options)
+  } else {
+    hotAPI.reload("data-v-128bd74e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 239 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__ = __webpack_require__(7);
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	extends: __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__["a" /* Line */],
+	props: ['asidenums', 'bsidenums', 'dates', 'aside', 'bside'],
+
+	computed: {
+		max: {
+			get: function get() {
+				var combine = [].concat(_toConsumableArray(this.asidenums), _toConsumableArray(this.bsidenums));
+
+				return combine.map(function (boxNum) {
+					return boxNum.y;
+				}).sort(function (a, b) {
+					return a - b;
+				})[combine.length - 1];
+			}
+		},
+		min: {
+			get: function get() {
+				var combine = [].concat(_toConsumableArray(this.asidenums), _toConsumableArray(this.bsidenums));
+
+				return combine.map(function (boxNum) {
+					return boxNum.y;
+				}).sort(function (a, b) {
+					return a - b;
+				})[0] - 50000;
+			}
+		}
+	},
+
+	mounted: function mounted() {
+		this.renderChart({
+			labels: this.dates,
+			datasets: [{
+				label: this.aside.first_name + ' ' + this.aside.last_name,
+				backgroundColor: 'rgba(17, 46, 120, 0.29)',
+				pointRadius: 0.7,
+				data: this.asidenums
+			}, {
+				label: this.bside.first_name + ' ' + this.bside.last_name,
+				backgroundColor: 'rgba(227, 43, 43, 0.5)',
+				pointRadius: 0.7,
+				data: this.bsidenums
+			}]
+		}, {
+			scales: {
+				xAxes: [{
+					type: 'time',
+					time: {
+						displayFormats: {
+							quarter: 'MMM YYYY'
+						}
+					}
+				}],
+				yAxes: [{
+					ticks: {
+						min: this.min,
+						max: this.max
+					}
+				}]
+			}
+		});
+	}
+});
 
 /***/ })
 /******/ ]);

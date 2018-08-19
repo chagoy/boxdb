@@ -35,6 +35,7 @@
 	<div>
 		<h3 class="uk-text-center">All Time Viewers Graph</h3>
 		<network-chart :networknums="{{ json_encode($networknums) }}" 
+					:network="{{ json_encode($network) }}"
 					:alltime="{{ json_encode($allViews->coordinates) }}" 
 					:totaldates="{{ json_encode($views->dates) }}" 
 					:width="500" 

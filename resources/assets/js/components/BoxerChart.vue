@@ -1,18 +1,26 @@
 <script>
   import { Line } from 'vue-chartjs';
+  import { Scatter } from 'vue-chartjs';
 
   export default {
     extends: Line,
-    props: ['boxernums', 'alltime', 'totaldates'],
-
+    props: ['boxernums', 'alltime', 'totaldates', 'boxer'],
+    // data() {
+    //   return {
+    //     options: {
+    //       responsive: true,
+    //       maintainAspectRatio: false
+    //     }
+    //   }
+    // },
     mounted() {
       this.renderChart({
         labels: this.totaldates,
             datasets: [
               {
-                label: 'Average Viewers',
-                backgroundColor: 'rgba(0, 107, 166, 0.5)',
-                pointRadius: 0.9,
+                label: `${this.boxer}'s Ratings`,
+                pointRadius: 3.2,
+                // backgroundColor: 'rgba(0, 107, 166, 0.5)',
                 data: this.boxernums
               },
               {
@@ -35,7 +43,7 @@
           yAxes: [{
             ticks: {
               min: 40000,
-              max: 5000000
+              max: 6000000
             },
             // scaleSteps: 5,
             //travis login

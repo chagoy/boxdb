@@ -11,6 +11,7 @@ class CompareController extends Controller
 {
     public function show(Boxer $aside, Boxer $bside, Request $request)
     {
+        
     	$asideAllFights = $aside->arrayOfFights();
     	$asideData = $aside->views();
     	$asidenums = $aside->coordinates();

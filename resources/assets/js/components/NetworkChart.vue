@@ -3,14 +3,14 @@
 
 	export default {
 		extends: Line,
-    	props: ['networknums', 'alltime', 'totaldates'],
+    	props: ['networknums', 'alltime', 'totaldates', 'network'],
 
 		mounted() {
 			this.renderChart({
 				labels: this.totaldates,
 			      datasets: [
 			        {
-			          label: 'Average Viewers',
+			          label: this.network.name,
 			          backgroundColor: 'rgba(0, 107, 166, 0.5)',
 			          pointRadius: 0.5,
 			          data: this.networknums
