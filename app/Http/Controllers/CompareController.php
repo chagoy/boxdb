@@ -16,6 +16,8 @@ class CompareController extends Controller
     	$asideData = $aside->views();
     	$asidenums = $aside->coordinates();
 
+        $asideDates = $asideData->pluck('date');
+        $asideBar = $asideData->pluck('average');
     	$bsideAllFights = $bside->arrayOfFights();
     	$bsideData = $bside->views();
     	$bsidenums = $bside->coordinates();
@@ -23,7 +25,7 @@ class CompareController extends Controller
         
         $dates = $data->sortBy('date')->pluck('date');
 
-    	return view('compare.boxers', compact('aside', 'asideAllFights', 'asideData', 'asidenums', 'bside', 'bsideAllFights', 'bsideData', 'bsidenums', 'dates'));
+    	return view('compare.boxers', compact('aside', 'asideAllFights', 'asideData', 'asidenums', 'bside', 'bsideAllFights', 'bsideData', 'bsidenums', 'dates', 'asideBar', 'asideDates'));
     }
 
     public function network(Network $anetwork, Network $bnetwork, Request $request)

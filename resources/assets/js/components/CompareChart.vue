@@ -3,7 +3,7 @@
 
 	export default {
 		extends: Line,
-		props: ['anums', 'bnums', 'dates', 'anetwork', 'bnetwork'],
+		props: ['anums', 'bnums', 'dates', 'anetwork', 'bnetwork', 'asideBar'],
 
 		mounted() {
 			this.renderChart({

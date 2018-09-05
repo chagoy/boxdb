@@ -12,8 +12,11 @@
 		:dates="{{ json_encode($dates) }}"
 		:aside="{{ json_encode($aside) }}"
 		:bside="{{ json_encode($bside) }}"
+		:asidebar="{{ json_encode($asideBar) }}"
+		:asidedates="{{ json_encode($asideDates) }}"
 		:asidenums="{{ json_encode($asidenums) }}"
 		:bsidenums="{{ json_encode($bsidenums) }}"
+
 		:width="500" 
 		:height="200"
 	></compare-boxers>
