@@ -11,9 +11,9 @@
 	            <input type="file" type="file" accept="image/*" name="image">
 	            <button type="submit">submit</button>
 	        </form>
-        @if ($boxer->image_path)
+       {{--  @if ($boxer->image_path)
 			<img src="{{ asset($boxer->image_path) }}" alt="">
-        @endif
+        @endif --}}
     	</div>
 	</div>
 	<div class="uk-container">
